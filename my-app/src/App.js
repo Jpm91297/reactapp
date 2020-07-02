@@ -2,25 +2,38 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {datalist: props.datalist};
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick(e){
+    console.log(e)
+    const earr = e.target.id.split(' ')
+    this.setState({datalist: earr})
+  }
+
+
+  render() {
+    return (
+      <div className="App">
+        <h1>Jordan's Urban Dictionary</h1>
+        <p>We have all of the words.</p>
+        <h2>
+          <input type="button" id='the only button' onClick={this.handleClick}/>
+        </h2>
+      <ul>
+        {this.state.datalist.map(element =>{
+            return <li> {element} </li>
+          })}
+      </ul>
+      </div>
+    );
+  }
 }
+
+
 
 export default App;

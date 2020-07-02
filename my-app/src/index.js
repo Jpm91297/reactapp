@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App datalist={[1,2,3,4,5,7,8,9,10]}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
